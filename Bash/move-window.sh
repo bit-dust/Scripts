@@ -14,7 +14,7 @@
 #				Setting up: first you must give executation permission. Then, according to your descktop enviroment and window manager, create a keyboard shortcut.
 #				For example, if you use Gnome 3.10 go to Settings->Keyboard->Shortcuts and add a new shortcut.
 #				Name it like you want and in "command" write this "bash /path/to/this_script.sh <option>". 
-#				For example "bash /home/brian/move-window.sh left" to shortcut the move to left option.
+#				For example: bash /home/brian/move-window.sh "left" to shortcut the move to left option.
 #				(Please make shure that the path doesn't contains white spaces). 
 #				Search on the web for your dekstop.
 #				You're ready to use :)
@@ -28,7 +28,7 @@
 #				Por ejemplo, si usas Gnome 3.10 como entorno dirígite a Configuraciones -> Teclado -> Atajos y añade un nuevo atajo.
 #				Busca en internet sobre cómo debes crear atajos en tu escritorio.
 #				Nómbralo como quieras y en "comando" escribe "bash /ruta/al/MoveWindow.sh <opción>".
-#				Por ejemplo "bash /home/brian/move-window.sh left" para crear un atajo de mover a la ventana a la izquierda.
+#				Por ejemplo: bash /home/brian/move-window.sh "left" para crear un atajo de mover a la ventana a la izquierda.
 #				(Asegúrate que la ruta no posea espacios en blanco para evitar errores)
 #				Estás listo para usarlo :)
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
