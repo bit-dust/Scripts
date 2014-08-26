@@ -17,7 +17,7 @@
 #				For example "bash /home/brian/MoveWindow.sh left" to shortcut the move to left option.
 #				(Please make shure that the path doesn't contains white spaces). 
 #				Search on the web for your dekstop.
-#				You're ready to use :)     
+#				You're ready to use :)
 # 
 #	Espanish: 	Este es un simple script con el que puedes mover la ventana activa hacia la derecha, izquierda o centro de tu pantalla.
 # 				La mejor manera de usarlo es configurando un atajo de teclado, por ejemplo <Super> + Izquierda.
