@@ -55,6 +55,7 @@ case "$1" in
 '')
 	echo "Options are: top-left, top-right, center, bottom-left,bottom-right, left and right. Please use only one option."
 	echo "Note if you're running this script inside a console only the console will be affected."
+;;
 'left')
 	xdotool windowmove $winid 0 $center_y
 	xdotool windowsize $winid $(( $sc_width/2 )) $sc_height
