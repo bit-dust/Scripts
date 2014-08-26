@@ -7,7 +7,7 @@
 #				xrandr, 
 #				xdotool -> http://www.semicomplete.com/projects/xdotool/
 # Description:
-#	English: 	This is a simple script that you can use to move the active window to the left, right or center of your screen.
+#	English: 	This is a simple script that you can use to move the active window to differents parts of your screen.
 #				The best way to use it is configuring a keyboard shortcut to execute the script, like <Super> + Left to move window to the left.
 #				So when you want move the current window you only must press <Super> + Left and your window will be moved to the left in your screen.
 #				
@@ -33,24 +33,28 @@
 #				Estás listo para usarlo :)
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-
 # get the current screen resolution
 sc_resol=( $(xrandr | grep '*' | grep -Eo '[0-9]{1,4}') ) # grep numbers with 1-4 digits
 sc_width="${sc_resol[0]}"
 sc_height="${sc_resol[1]}"
 
+# get the active window size
 win_geometry=( $(xdotool getwindowfocus getwindowgeometry --shell | egrep  'HEIGHT|WIDTH' | grep -Eo '[0-9]{1,4}') )
 win_width="${win_geometry[0]}"
 win_height="${win_geometry[1]}"
 
+# get the active window id
 winid=`xdotool getwindowfocus`
 
+# center position respect the active window size
 center_x=$((sc_width / 2 - win_width / 2))
 center_y=$((sc_height / 2 - win_height / 2))
 
+# the options are <lef|top-left|bottom-left|center|right|top-right|bottom-right>
 case "$1" in
 '')
 	echo "Options are: top-left, top-right, center, bottom-left,bottom-right, left and right. Please use only one option."
+	echo "Note if you're running this script inside a console only the console will be affected."
 'left')
 	xdotool windowmove $winid 0 $center_y
 	xdotool windowsize $winid $(( $sc_width/2 )) $sc_height
