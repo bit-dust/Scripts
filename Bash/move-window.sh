@@ -11,15 +11,14 @@
 #				The best way to use it is configuring a keyboard shortcut to execute the script, like <Super> + Left to move window to the left.
 #				So when you want move the current window you only must press <Super> + Left and your window will be moved to the left in your screen.
 #				
-#				Setting up: first you must give executation permission. Then, according to your descktop enviroment and window manager, create a keyboard shortcut.
-#				For example, if you use Gnome 3.10 go to Settings->Keyboard->Shortcuts and add a new shortcut.
+#				Setting up: first you must give executation permission. Then, according to your descktop enviroment and window manager, create a keyboard shortcut.	#				For example, if you use Gnome 3.10 go to Settings->Keyboard->Shortcuts and add a new shortcut.
 #				Name it like you want and in "command" write this "bash /path/to/this_script.sh <option>". 
 #				For example: bash /home/brian/move-window.sh "left" to shortcut the move to left option.
 #				(Please make shure that the path doesn't contains white spaces). 
 #				Search on the web for your dekstop.
 #				You're ready to use :)
 # 
-#	Espanish: 	Este es un simple script con el que puedes mover la ventana activa hacia la derecha, izquierda o centro de tu pantalla.
+#	Español: 	Este es un simple script con el que puedes mover la ventana activa hacia la derecha, izquierda o centro de tu pantalla.
 # 				La mejor manera de usarlo es configurando un atajo de teclado, por ejemplo <Super> + Izquierda.
 #				Entonces, si tu quieres centrar la actual ventana solo debes presionar <Super> + Izquierda y tu ventana se moverá a la izquierda de tu pantalla.
 #				
@@ -32,6 +31,16 @@
 #				(Asegúrate que la ruta no posea espacios en blanco para evitar errores)
 #				Estás listo para usarlo :)
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+msg="Options are: top-left, top-right, center, bottom-left,bottom-right, left and right. Please use only one option.\n"
+msg+="Note if you're running this script inside a console only the console will be affected.\n"
+	
+case $LANG in
+	es* )
+		msg="Las opciones son: top-left, top-right, center, bottom-left,bottom-right, left y right. Solo debes usar una.\n"
+		msg+="Ten en cuenta que si corres el script desde consola solo la consola se verá afectada.\n"
+	;;
+esac
 
 # get the current screen resolution
 sc_resol=( $(xrandr | grep '*' | grep -Eo '[0-9]{1,4}') ) # grep numbers with 1-4 digits
@@ -53,8 +62,7 @@ center_y=$((sc_height / 2 - win_height / 2))
 # the options are <lef|top-left|bottom-left|center|right|top-right|bottom-right>
 case "$1" in
 '')
-	echo "Options are: top-left, top-right, center, bottom-left,bottom-right, left and right. Please use only one option."
-	echo "Note if you're running this script inside a console only the console will be affected."
+	printf "$msg"
 ;;
 'left')
 	xdotool windowmove $winid 0 $center_y
