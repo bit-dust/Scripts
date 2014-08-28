@@ -1,0 +1,70 @@
+#!/bin/bash
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# Autor: Brian Mayo
+# Contact: brianmay.dev@gmail.com
+# Year: 2014
+# Name: winmove-installer.sh
+# Version: 1.0.0
+# Usage: bash winmove-installer.sh
+# Description:
+#	English:	Install the winmove.sh in your system.
+#	Español:	Instala el script winmove.sh en tu sistema.
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+bd_winmove="https://github.com/bit-dust/Scripts/tree/master/Bash"
+bd_winmove_file="https://raw.githubusercontent.com/bit-dust/Scripts/master/Bash/winmove.sh"
+xdotoll_web="http://www.semicomplete.com/projects/xdotool/"
+bd_path="$HOME/.bit-dust"
+
+msg_welcome="Welcome. This scripts is going to install winmove in your system. Press [ENTER] to continue."
+msg_no_xdotool="xdotoll is not installed. See instructions on $xdotoll_web.\n"
+msg="Install xdotool and execute this script again to install winmove.\nPress any key to exit."
+msg_path="Write the full path where you want to install winmove.\nMake shure that the path \e[33mdoesn't contain white spaces\e[0m or press enter to install in default location:\n"
+msg_completed="\nwinmove was installed in %s. Read the instructions inside the winmove script or go to \e[32m$bd_winmove\e[0m.\n"
+msg_completed+="Press any key to exit.\n"
+msg_installing="\nInstalling...\n"
+
+case $LANG in
+  es* )
+	msg_welcome="Bienvenido. Este script va a instalar winmove en tu sistema. Presiona [ENTER] para continuar."
+    msg_no_xdotool="xdotool no está instalado. Puedes ver instrucciones en $xdotoll_web.\n"
+    msg_no_xdotool+="Instala xdotool y ejecuta este scrip nuevamente para instalar winmove.\nPresiona cualquier tecla para salir.\n"
+    msg_path="Escribe el directorio donde deseas instalar winmove:\n"
+    msg_completed="\nwinmove fue instalado en %s. Lee las instrucciones de uso dentro de winmove o dirigete a \e[32m$bd_winmove\e[0m.\n"
+	msg_completed+="Presiona cualquier tecla para salir.\n"
+	msg_installing="\nInstalando...\n"
+  ;;
+esac
+
+check_requeriments() {
+    if [ -f /bin/xdotool ]; then
+        check=true
+    fi
+}
+clear
+read -p "$msg_welcome" enter
+check_requeriments
+if [ $check ]; then
+	clear
+    printf "$msg_path"
+    read script_path
+    if [ -z $script_path ]; then
+	    script_path="$bd_path"
+	fi
+    if [[ ! -d "$script_path" ]]; then
+        mkdir $script_path
+    fi
+
+    cd $script_path
+    printf $msg_installing
+    wget -nv -q "$bd_winmove_file"
+    chmod +x winmove.sh
+    printf "$msg_completed" "$script_path"
+    read enter
+    exit
+else
+	printf "$msg_no_xdotool"
+    exit 1
+fi
+
+exit
