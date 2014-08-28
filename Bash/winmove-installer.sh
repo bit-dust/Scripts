@@ -1,6 +1,6 @@
 #!/bin/bash
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# Autor: Brian Mayo
+# Author: Brian Mayo
 # Contact: brianmay.dev@gmail.com
 # Year: 2014
 # Name: winmove-installer.sh
