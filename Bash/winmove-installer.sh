@@ -18,7 +18,7 @@ bd_path="$HOME/.bit-dust"
 
 msg_welcome="Welcome. This scripts is going to install winmove in your system. Press [ENTER] to continue."
 msg_no_xdotool="xdotoll is not installed. See instructions on $xdotoll_web.\n"
-msg="Install xdotool and execute this script again to install winmove.\nPress any key to exit."
+msg_no_xdotool+="Install xdotool and execute this script again to install winmove.\nPress any key to exit."
 msg_path="Write the full path where you want to install winmove.\nMake shure that the path \e[33mdoesn't contain white spaces\e[0m or press enter to install in default location:\n"
 msg_completed="\nwinmove was installed in %s. Read the instructions inside the winmove script or go to \e[32m$bd_winmove\e[0m.\n"
 msg_completed+="Press any key to exit.\n"
