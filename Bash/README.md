@@ -1,7 +1,7 @@
 Please read the instructions inside on each script.
 ============================================
 
-move-window.sh
+winmove.sh
 --------------
 
 Is a simple script to manage window positions using keyboard shortcuts.
