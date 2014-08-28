@@ -17,4 +17,7 @@ You can set the keyboard shortcuts like:
 | bottom-right| Super + 3 |
 | center      | Super + 5 |
     
-    
+winmove-installer.sh
+--------------------
+
+Simple installer for winmove.sh. Execute with execution permissions.
