@@ -27,5 +27,4 @@ Simple script to execute [Node Webkit](https://github.com/rogerwang/node-webkit)
 <<<<<<< HEAD
 Execute inside a terminal using "./nw-exec.sh". You can exclude folders and files using the -x parameter,
 use "\file.ext" to excluding files and "\folder/*" to exclude folders.
-=======
->>>>>>> 4b448f99d5f0a1fbebd065b2fa1ad7affa57f16f
+
