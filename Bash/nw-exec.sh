@@ -6,7 +6,7 @@
 # Description: This script allows to execute Node Webkit based apps easily zipping your app and moving it to apps folder in node webkit folder.
 # Usage: For using this script you must set up the variable "nw_path" with the full path to node webkit folder.
 #		 The node webkit folder must not contains white spaces.
-#		 Put this script in the root folder of the app and execute it (same folder as package.json).
+#		 Put this script in the root folder of the app and execute it (same folder as package.json) or make a link in /bin folder.
 #
 # This program is free software: you can redistribute it and/or modify
 #     it under the terms of the GNU General Public License as published by
@@ -22,6 +22,10 @@
 #     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ###########################################################################
 
+if [[ ! -f "$PWD/package.json" ]]; then
+	echo "No package.json file founded. Execution failed."
+fi
+
 old=$IFS
 IFS=$'\n'
 
@@ -35,7 +39,7 @@ fi
 app_name="${PWD##*/}.nw"
 app_nw="$nw_apps_path/$app_name"
 
-zip -q -r "$app_name" .  -x \*.sh
+zip -q -r "$app_name" . #-x "exclude"
 
 if [[ -f "$app_nw" ]]; then
 	rm "$app_nw"
