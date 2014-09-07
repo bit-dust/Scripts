@@ -28,9 +28,9 @@ Execute inside a terminal using "./nw-run" or make a link in /bin to execute any
 You can exclude folders and files from your nw package using the -x parameter, use *\file.ext* to exclude files and/or *\folder/** to exclude folders.
 Separe the folders and files with a comma, for example: 
 ```
-nw-run -x "\file.txt, \folder/*, \folder2/*"
+nw-run -x "\file.txt, \folder/*, \folder2/image.jpg"
 ```
-nw-run will exclude *file.txt*, *folder* and *folder2* from your nw package.
+nw-run will exclude *file.txt*, *folder* and *folder2/image.jpg* from your nw package.
 
 > The nw-run script creates a folder inside node-webkit folder called *apps*. In this folder will be stored all your nw apps executed with this script.
 
