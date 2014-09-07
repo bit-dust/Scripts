@@ -4,7 +4,7 @@
 # Author: Brian Mayo
 # Contact: brianmay.dev@gmail.com
 # Year: 2014
-# Name: winmove-installer.sh
+# Name: winmove-installer
 # Version: 1.0.0
 # Usage: bash winmove-installer.sh
 # Description:
@@ -59,7 +59,7 @@ if [ $check ]; then
     cd $script_path
     printf $msg_installing
     wget -nv -q "$bd_winmove_file"
-    chmod +x winmove.sh
+    chmod +x winmove
     printf "$msg_completed" "$script_path"
     read enter
     exit

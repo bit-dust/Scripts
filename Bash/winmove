@@ -15,8 +15,8 @@
 #               So when you want move the current window you only must press <Super> + Left and your window will be moved to the left in your screen.
 #       
 #               Setting up: first you must give executation permission. Then, according to your descktop enviroment and window manager, create a keyboard shortcut. #       For example, if you use Gnome 3.10 go to Settings->Keyboard->Shortcuts and add a new shortcut.
-#               Name it like you want and in "command" write this "bash /path/to/this_script.sh <option>". 
-#               For example: bash /home/brian/winmove.sh "left" to shortcut the move to left option.
+#               Name it like you want and in "command" write this "bash /path/to/this_script <option>". 
+#               For example: bash /home/brian/winmove "left" to shortcut the move to left option.
 #               (Please make shure that the path doesn't contains white spaces). 
 #               Search on the web for your dekstop.
 #               You're ready to use :)
@@ -29,8 +29,8 @@
 #               debes crear un atajo de teclado.
 #               Por ejemplo, si usas Gnome 3.10 como entorno dirígite a Configuraciones -> Teclado -> Atajos y añade un nuevo atajo.
 #               Busca en internet sobre cómo debes crear atajos en tu escritorio.
-#               Nómbralo como quieras y en "comando" escribe "bash /ruta/a/este-script.sh <opción>".
-#               Por ejemplo: bash /home/brian/winmove.sh "left" para crear un atajo de mover a la ventana a la izquierda.
+#               Nómbralo como quieras y en "comando" escribe "bash /ruta/a/este-script <opción>".
+#               Por ejemplo: bash /home/brian/winmove "left" para crear un atajo de mover a la ventana a la izquierda.
 #               (Asegúrate que la ruta no posea espacios en blanco para evitar errores)
 #               Estás listo para usarlo :)
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
