@@ -46,9 +46,6 @@ if [[ ! ${#exclude[@]} -eq 0 ]]; then
 	done
 fi
 
-echo "$z"
-read l
-
 bash -c "$z"
 if [[ -f "$app_nw" ]]; then
 	rm "$app_nw"
