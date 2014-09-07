@@ -1,7 +1,7 @@
 ## Please read the instructions inside on each script.
 
 
-## winmove.sh
+## winmove
 
 
 Is a simple script to manage window positions using keyboard shortcuts.
@@ -17,11 +17,11 @@ You can set the keyboard shortcuts like:
 | bottom-right| Super + 3 |
 | center      | Super + 5 |
     
-## winmove-installer.sh
+## winmove-installer
 
 Simple installer for **winmove.sh**. Execute with execution permissions.
 
-## nw-exec.sh
+## nw-run
 
 Simple script to execute [Node Webkit](https://github.com/rogerwang/node-webkit) based apps.
 Execute inside a terminal using "./nw-exec.sh" or make a link in /bin to execute anywhere. 

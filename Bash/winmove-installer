@@ -12,7 +12,7 @@
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 bd_winmove="https://github.com/bit-dust/Scripts/tree/master/Bash"
-bd_winmove_file="https://raw.githubusercontent.com/bit-dust/Scripts/master/Bash/winmove.sh"
+bd_winmove_file="https://raw.githubusercontent.com/bit-dust/Scripts/master/Bash/winmove"
 xdotoll_web="http://www.semicomplete.com/projects/xdotool/"
 bd_path="$HOME/.bit-dust"
 
