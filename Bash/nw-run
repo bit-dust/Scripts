@@ -45,6 +45,10 @@ fi
 
 mv "$app_name" "$app_nw"
 cd "$nw_path"
+if [[ ! -f "nw" ]]; then
+	echo "nw binary not founded. Execution failed."
+	exit 1
+fi
 
 ./nw "apps/$app_name"
 
