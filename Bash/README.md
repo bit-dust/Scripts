@@ -24,6 +24,6 @@ Simple installer for **winmove.sh**. Execute with execution permissions.
 ## nw-exec.sh
 
 Simple script to execute [Node Webkit](https://github.com/rogerwang/node-webkit) based apps.
-Execute inside a terminal using "./nw-exec.sh" or make a link in /bin to execute anywhere. You can exclude folders and files using the -x parameter,
-use "\file.ext" to excluding files and "\folder/*" to exclude folders.
+Execute inside a terminal using "./nw-exec.sh" or make a link in /bin to execute anywhere. 
+You can exclude folders and files using the -x parameter on **zip** call, use "\file.ext" to excluding files and "\folder/*" to exclude folders.
 
