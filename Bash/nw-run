@@ -1,14 +1,13 @@
 #!/bin/bash
 
-########################################################################
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Autor: Brian Mayo
 # Version: 1.0.0
 # Description: This script allows to execute Node Webkit based apps easily zipping your app and moving it to apps folder in node webkit folder.
 # Usage: For using this script you must set up the variable "nw_path" with the full path to node webkit folder.
 #		 The node webkit folder must not contains white spaces.
-#		 Put this script in the root folder of the app and execute it (same folder as package.json) 
-#		 or make a link in /bin folder.
-###########################################################################
+#		 Put this script in the root folder of the app and execute it (same folder as package.json) or make a link in /bin folder.
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 if [[ ! -f "$PWD/package.json" ]]; then
 	echo "No package.json file founded. Execution failed."
