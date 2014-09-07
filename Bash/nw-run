@@ -17,7 +17,7 @@ old=$IFS
 IFS=', '
 set +f
 GLOBIGNORE=*
-
+exclude=()
 while getopts x: flag; do
   case $flag in
     x) exclude=( $OPTARG );;
@@ -37,8 +37,19 @@ fi
 app_name="${PWD##*/}.nw"
 app_nw="$nw_apps_path/$app_name"
 
-zip -q -r "$app_name" . -x "${exclude[@]}"
+z="zip -q -r $app_name . "
+if [[ ! ${#exclude[@]} -eq 0 ]]; then
+	z+="-x"
+	for x in "${exclude[@]}"
+	do
+	  z+=" \"$x\""
+	done
+fi
 
+echo "$z"
+read l
+
+bash -c "$z"
 if [[ -f "$app_nw" ]]; then
 	rm "$app_nw"
 fi
