@@ -9,26 +9,34 @@
 #		 Put this script in the root folder of the app and execute it (same folder as package.json) or make a link in /bin folder.
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+nw_path="/home/brian/Programs/nw" # set up this. Ex /home/node-webkit
+nw_apps_path="$nw_path/apps"
+
 if [[ ! -f "$PWD/package.json" ]]; then
 	echo "No package.json file founded. Execution failed."
 fi
 
 old=$IFS
 IFS=', '
-set +f
-GLOBIGNORE=*
 exclude=()
-while getopts x: flag; do
+while getopts x:c flag; do
   case $flag in
-    x) exclude=( $OPTARG );;
+    x) 
+		set +f
+		GLOBIGNORE=*
+		exclude=( $OPTARG );;
+	c) 
+		if [ "$(ls -A $nw_apps_path)" ]; then
+			rm -r $nw_apps_path/*
+		fi
+		echo "Node Webkit apps deleted."
+		exit
+		;;
     *) break ;;
   esac
 done
 
 IFS=$'\n'
-
-nw_path="/home/brian/Programs/nw" # set up this. Ex /home/node-webkit
-nw_apps_path="$nw_path/apps"
 
 if [[ ! -d "$nw_apps_path" ]]; then
 	mkdir "$nw_apps_path" # nw apps folder

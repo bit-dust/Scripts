@@ -32,5 +32,5 @@ nw-run -x "\file.txt, \folder/*, \folder2/image.jpg"
 ```
 nw-run will exclude *file.txt*, *folder* and *folder2/image.jpg* from your nw package.
 
-> The nw-run script creates a folder inside node-webkit folder called *apps*. In this folder will be stored all your nw apps executed with this script.
+> The nw-run script creates a folder inside node-webkit folder called *apps*. In this folder will be stored all your nw apps executed with this script. To clean the nw apps folder execute **nw-run -c**.
 
