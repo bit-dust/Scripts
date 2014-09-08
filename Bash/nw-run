@@ -9,7 +9,7 @@
 #		 Put this script in the root folder of the app and execute it (same folder as package.json) or make a link in /bin folder.
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-nw_path="/home/brian/Programs/nw" # set up this. Ex /home/node-webkit
+nw_path="/path/to/node-webkit" # set up this. Ex /home/node-webkit
 nw_apps_path="$nw_path/apps"
 
 if [[ ! -f "$PWD/package.json" ]]; then
