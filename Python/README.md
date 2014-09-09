@@ -11,7 +11,7 @@ For example: **Photo (23).jpg**
 	Nautilus or a derivated file manager (Caja, Nemo)
 
 #### Installation: 
-Copy this file in **/home/<user>/.local/share/nautilus/scripts** and give it executation permissions.
+Copy this file in **/home/user/.local/share/nautilus/scripts** and give it executation permissions.
 For Caja or Nemo modify line 38: 
 `NAUTILUS_SCRIPT_SELECTED_FILE_PATHS` to `CAJA_SCRIPT_SELECTED_FILE_PATHS` or 
 `NEMO_SCRIPT_SELECTED_FILE_PATHS`
