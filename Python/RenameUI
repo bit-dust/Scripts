@@ -84,17 +84,17 @@ class Renamer:
 			self.rename(self.entry.get_text())
 
 	def __init__(self):
-		msg = "Enter the new name.\nPress ENTER to rename files."
+		msg = "Enter the new name.\nPress ENTER to rename files or ESC to cancel."
 		if "es" in os.environ.get("LANG"):
-			msg = "Ingresa el nuevo nombre.\nPresiona ENTER para renombrar los archivos."
+			msg = "Ingresa el nuevo nombre.\nPresiona ENTER para renombrar o ESC para cancelar."
 
 		# create a window
 		self.win = gtk.Window(gtk.WINDOW_TOPLEVEL)
 		self.win.set_skip_taskbar_hint(True)
+		self.win.set_usize(336, 104)
 		self.win.set_resizable(False)
 		self.win.set_position(gtk.WIN_POS_CENTER)
 		self.win.move(self.win.get_position()[0],160)
-		self.win.set_usize(336, 104)
 		self.win.set_title("Bit-Dust Renamer")
 		self.win.connect("delete_event", gtk.mainquit)
 
@@ -107,6 +107,7 @@ class Renamer:
 		vbox.show()
 
 		label = gtk.Label(msg)
+		label.set_line_wrap(True)
 		vbox.pack_start(label, False, False, 10)
 		label.show()
 
