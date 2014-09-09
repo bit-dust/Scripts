@@ -19,7 +19,7 @@ For Caja or Nemo modify:
 Right click on the selected files that you want to rename (you can include folders). Open the context menu
 and click in **Scripts->Rename**.
 * __Renaming Folder content:__ 
-Right click on a folder, go to Scripts->Renamer.
+Right click on a folder, go to **Scripts->Renamer**. All files in the selected folder will be renamed except hidden files.
 * In both cases if you __leave empty__ the text entry the files will be renamed with the parent folder name.
 * Press __ESC__ to __cancel__.
 
