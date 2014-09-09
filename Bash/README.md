@@ -25,7 +25,7 @@ Simple installer for **winmove.sh**. Execute with execution permissions.
 
 Simple script to execute [Node Webkit](https://github.com/rogerwang/node-webkit) based apps.
 #### Usage:
-Copy the script to your app folder and execute inside a terminal using `./nw-run`. You can make a link in /bin to execute anywhere, open in a terminal your app folder - where is the **package.json* file - (example: `cd /node-webkit/app-folder`) and run `nw-run`. 
+Copy the script to your app folder and execute inside a terminal using `./nw-run`. You can make a link in /bin to execute anywhere, open in a terminal your app folder - where is the **package.json** file - (example: `cd /node-webkit/app-folder`) and run `nw-run`. 
 You can exclude folders and files from your nw package using the -x parameter, use *\file.ext* to exclude files and/or *\folder/** to exclude folders.
 Separe the folders and files with a comma, for example: 
 ```
