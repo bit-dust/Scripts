@@ -1,5 +1,3 @@
-## Please read the instructions inside on each script.
-
 ## Rename
 
 Is a simple script for Nautilus that renames files and folders following a pattern: filename (nº).ext.
