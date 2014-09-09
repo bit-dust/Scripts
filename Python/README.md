@@ -35,5 +35,5 @@ Is a simple Gtk interface for Rename script.
 	Python 2.x
 	Gtk 2.x
 	Nautilus or a derivated file manager (Caja, Nemo)
-**Installation and Usage are the same as Rename script.**
+**Installation and Usage are the same as Rename script. Note that the interface depends of your gnome-shell theme.**
 
