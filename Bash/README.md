@@ -24,7 +24,8 @@ Simple installer for **winmove.sh**. Execute with execution permissions.
 ## nw-run
 
 Simple script to execute [Node Webkit](https://github.com/rogerwang/node-webkit) based apps.
-Execute inside a terminal using "./nw-run" or make a link in /bin to execute anywhere. 
+#### Usage:
+Copy the script to your app folder and execute inside a terminal using `./nw-run`. You can make a link in /bin to execute anywhere, open in a terminal your app folder (example: `cd /node-webkit/app-folder`) and run `nw-run`. 
 You can exclude folders and files from your nw package using the -x parameter, use *\file.ext* to exclude files and/or *\folder/** to exclude folders.
 Separe the folders and files with a comma, for example: 
 ```
@@ -32,5 +33,9 @@ nw-run -x "\file.txt, \folder/*, \folder2/image.jpg"
 ```
 nw-run will exclude *file.txt*, *folder* and *folder2/image.jpg* from your nw package.
 
-> The nw-run script creates a folder inside node-webkit folder called *apps*. In this folder will be stored all your nw apps executed with this script. To clean the nw apps folder execute **nw-run -c**.
+#### Requeriments
+	zip
+	node-webkit 
+
+> The nw-run script creates a folder inside node-webkit folder called **apps**. In this folder will be stored all your nw apps executed with this script. To clean the nw apps folder execute `nw-run -c`.
 
