@@ -12,6 +12,7 @@ The script use a Gtk window.
 
 #### Installation: 
 Copy this file in **/home/user/.local/share/nautilus/scripts** and give it executation permissions.
+The path must not have white spaces.
 For Caja or Nemo modify: 
 `NAUTILUS_SCRIPT_SELECTED_FILE_PATHS` to `CAJA_SCRIPT_SELECTED_FILE_PATHS` or 
 `NEMO_SCRIPT_SELECTED_FILE_PATHS`
