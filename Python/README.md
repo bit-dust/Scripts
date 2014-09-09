@@ -1,5 +1,7 @@
 ## Rename
 
+![](http://goo.gl/yaGlOJ?gdriveurl)
+
 Is a simple script for Nautilus that renames files and folders following a pattern: filename (nº).ext.
 For example: **Photo (23).jpg**
 
