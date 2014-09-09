@@ -25,6 +25,8 @@ Right click on a folder, go to **Scripts->Renamer**. All files in the selected f
 
 ## RenameUI
 
+![](http://goo.gl/rWOjiA?gdriveurl)
+
 Is a simple Gtk interface for Rename script.
 
 #### Requeriments:	
