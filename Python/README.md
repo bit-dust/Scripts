@@ -11,7 +11,7 @@ For example: **Photo (23).jpg**
 	Gnome Terminal (for other terminal emulator you must modify in the script the callTerminal method)
 
 #### Installation: 
-Copy the scrip in **/home/user/.local/share/nautilus/scripts** and give it executation permissions.
+Copy the scrip in **/home/user/.local/share/nautilus/scripts** and give it execution permissions.
 The path must not have white spaces.
 For Caja or Nemo modify: 
 `NAUTILUS_SCRIPT_SELECTED_FILE_PATHS` to `CAJA_SCRIPT_SELECTED_FILE_PATHS` or 
