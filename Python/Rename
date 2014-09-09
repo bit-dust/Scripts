@@ -20,7 +20,7 @@
 #		"NEMO_SCRIPT_SELECTED_FILE_PATHS"
 #
 # Usage:    
-#		* Renaming Files: Right click on the selected files that you want to rename (you can include folders). 
+#		* Renaming Files: Right click on the selected files that you want rename (you can include folders). 
 #			Open the context menu and click in Scripts->Renamer. 
 #		* Renaming Folder content: Right click on a folder, go to Scripts->Renamer.
 #		In both cases if you leave empty the text entry the files will be renamed with the parent folder name.
