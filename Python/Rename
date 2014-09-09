@@ -135,8 +135,14 @@ def main():
 		print addColor(msg_noneed, "BLUE")
 		print no_renamed
 
-	print "\n%s(%i) %s%s.\n" % (tcolors.GREEN, f_renamed, msg_succes, " in %s folder" % (tcolors.TURQUEZE +  dName + tcolors.GREEN) if fInDir else "")
+	print "\n%s(%i) %s%s.\n" % (colors['GREEN'], f_renamed, msg_succes, " in %s folder" % (colors['TURQUEZE'] +  dName + colors['GREEN']) if fInDir else "")
 	print addColor(msg_finished, "VIOLET")
 	raw_input()
 	selected, dFiles = None, None
 	exit()
+# if the script is not running inside a terminal open it 
+if not sys.stdout.isatty(): 
+    callTerminal()
+    exit()
+elif __name__ == "__main__":
+    main()
