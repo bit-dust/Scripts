@@ -2,7 +2,12 @@
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Autor: Brian Mayo
-# Version: 1.0.0
+# Contact:     brianmay.dev@gmail.com
+# Created:     9/9/2014
+# Licence:     GNU GPL v3
+# Version: 	   1.0.0
+# Requeriments:	zip
+#				node-webkit
 # Description: This script allows to execute Node Webkit based apps easily zipping your app and moving it to apps folder in node webkit folder.
 # Usage: For using this script you must set up the variable "nw_path" with the full path to node webkit folder.
 #		 The node webkit folder must not contains white spaces.
