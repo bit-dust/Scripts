@@ -4,6 +4,7 @@
 
 Is a simple script for Nautilus that renames files and folders following a pattern: filename (nº).ext.
 For example: **Photo (23).jpg**
+The script use a Gtk window.
 
 #### Requeriments:	
 	Python 2.x
@@ -15,6 +16,7 @@ Copy this file in **/home/user/.local/share/nautilus/scripts** and give it execu
 For Caja or Nemo modify line 38: 
 `NAUTILUS_SCRIPT_SELECTED_FILE_PATHS` to `CAJA_SCRIPT_SELECTED_FILE_PATHS` or 
 `NEMO_SCRIPT_SELECTED_FILE_PATHS`
+You can name the script as you want.
 
 #### Usage:    
 * Renaming Files: 
