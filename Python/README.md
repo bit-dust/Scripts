@@ -18,14 +18,14 @@ For Caja or Nemo modify:
 You can name the script as you want.
 
 #### Usage:    
-* Renaming Files: 
+* __Renaming Files:__
 Right click on the selected files that you want to rename (you can include folders). Open the context menu
 and click in **Scripts->Renamer**. Simple window will be opened and write in it the new name for the files.
-* Renaming Folder content: 
+* __Renaming Folder content:__ 
 Right click on a folder, go to Scripts->Renamer.
 Simple window will be opened and write in it the new name for the folder files.
-* In both cases if you leave empty the text entry the files will be renamed with the parent folder name.
-* Press ESC to cancel.
+* In both cases if you __leave empty__ the text entry the files will be renamed with the parent folder name.
+* Press __ESC__ to __cancel__.
 
 ## RenameUI
 
