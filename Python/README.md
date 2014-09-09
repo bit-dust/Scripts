@@ -8,7 +8,6 @@ The script use a Gtk window.
 
 #### Requeriments:	
 	Python 2.x
-	Gtk 2.x
 	Nautilus or a derivated file manager (Caja, Nemo)
 
 #### Installation: 
@@ -27,4 +26,14 @@ Right click on a folder, go to Scripts->Renamer.
 Simple window will be opened and write in it the new name for the folder files.
 * In both cases if you leave empty the text entry the files will be renamed with the parent folder name.
 * Press ESC to cancel.
+
+## RenameUI
+
+Is a simple Gtk interface for Rename script.
+
+#### Requeriments:	
+	Python 2.x
+	Gtk 2.x
+	Nautilus or a derivated file manager (Caja, Nemo)
+**Installation and Usage are the same as Rename script.**
 

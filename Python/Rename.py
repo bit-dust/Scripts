@@ -1,0 +1,142 @@
+#! /usr/bin/env python2
+# -*- coding: utf-8 -*-
+
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# Name:        Renamer
+# Purpose:     Rename all selected files following a pattern: filename (nº).ext.
+#              For example: Photo (23).jpg
+#
+# Author:      Brian Mayo
+# Contact:     brianmay.dev@gmail.com
+# Created:     28/08/2014
+# Copyleft:    2014
+# Licence:     GNU GPL v3
+# 
+# Requeriments:	Python 2.x
+#				Nautilus or a derivated file manager (Caja, Nemo)
+# Installation: 
+#       Copy this file in /home/<user>/.local/share/nautilus/scripts and give it executation permissions.
+#		For Caja or Nemo modify line 38: "NAUTILUS_SCRIPT_SELECTED_FILE_PATHS" to "CAJA_SCRIPT_SELECTED_FILE_PATHS" or 
+#		"NEMO_SCRIPT_SELECTED_FILE_PATHS"
+#
+# Usage:    
+#		* Renaming Files: Right click on the selected files that you want to rename (you can include folders). Open the context menu
+#                   	  and click in Scripts->Renamer. Simple window will be opened and write in it the new name for the files.
+#		* Renaming Folder content: Right click on a folder, go to Scripts->Renamer.
+#						  Simple window will be opened and write in it the new name for the folder files.
+#		In both cases if you leave empty the text entry the files will be renamed with the parent folder name.
+#		Press ESC to cancel.
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+import os
+import sys
+
+global colors
+colors = { 'DEFAULT': '\033[0m',
+'GREEN': '\033[92m',
+'YELLOW': '\033[93m',
+'VIOLET': '\033[95m',
+'BLUE': '\033[94m',
+'TURQUEZE': '\033[96m',
+'WHITE': '\033[97m'
+}
+
+def addColor(s, color):
+	return colors[color] + s + colors['DEFAULT']
+
+def clearTerminal():
+    'Execute bash command to clear the terminal.'
+    os.system("clear")
+
+def callTerminal():
+    """
+    Open a gnome-terminal window to ask user for the new name for the selected files.
+    You can change the terminal as you want, check out the manual of your terminal to find the correlative arguments for:
+        gt_options, command.
+    """
+    # execute bash command to get screen resolution
+    sc_resolution = os.popen("xrandr | grep '*' | grep -Eo '[0-9]{1,4}'").read().splitlines()
+
+    # terminal position at the center of the current screen
+    t_x = int(sc_resolution[0]) / 2 - 400  # 90 columns =~ 400 px
+    t_y = int(sc_resolution[1]) / 2 - 234 # 20 rows =~ 180 px
+
+    script_path = os.path.abspath(__file__) # must be inside of nautilus/scripts folder
+    gt_options = "--working-directory=/ --title=Renamer --hide-menubar --geometry=90x26+{}+{}".format(t_x, t_y) 
+    # gnome terminal command with options and parameters
+    os.system("gnome-terminal %s -x bash -c \".%s && exit; bash\"" % (gt_options, script_path))
+
+def main():
+    # load strings
+    msg_newname = "Enter the new name or press ENTER to use the parent folder name: "
+    msg_inf = "\nThe files will be renamed withe the pattern: " + addColor("%s (i)\n", "YELLOW")
+    msg_renamed = "renamed to"
+    msg_succes = "Files renamed"
+    msg_noneed = "\nNo need to rename the following files:\n"
+    msg_finished = "Finished.\nPress ENTER to exit.\n"
+
+    if "es" in os.environ.get("LANG"):
+        msg_newname = "Escribe el nuevo nombre o presiona ENTER para usar el nombre de la carpeta contenedora: "
+        msg_inf = "\nLos archivos serán renombrados con el siguiente patrón: " + addColor("%s (i)\n", "YELLOW")
+        msg_renamed = "renombrado a"
+        msg_succes = "Archivos renombrados con éxito"
+        msg_noneed = "\nNo hace falta renombrar los siguientes archivos:\n"
+        msg_finished = "Listo.\nPresiona ENTER para salir.\n"
+
+    # get the selected files paths. Assuming that the user call the script from contextual menu
+    selected = os.environ.get("NAUTILUS_SCRIPT_SELECTED_FILE_PATHS").splitlines()
+
+    # check if user want to rename all files of a directory
+	fInDir = False
+	if len(selected) == 1 and os.path.isdir(selected[0]):
+		d = selected[0]
+		dFiles = [os.path.join(d, f) for f in os.listdir(d)] # get files with absolute path
+		dFiles = filter(lambda s: not s.startswith("."), dFiles) # filter hidden files
+		# if has files inside
+		if dFiles != []:
+			selected = dFiles
+			dName = os.path.split(d)[1]
+			fInDir = True
+
+    newName = raw_input(msg_newname)
+    if not newName: 
+        # the one selected dir name or the parent folder name
+        newName = dName if fInDir else os.path.split(os.path.abspath(selected[0] + "/.."))[1]
+
+    print msg_inf % (newName) # tell the user what we're gonna do 
+
+    f_renamed = 0 # count of renamed files
+    no_renamed = "" # files that we don't need to rename
+
+    # main loop
+    for f in selected:
+        fExt = os.path.splitext(f)[1]
+        fPath,fName = os.path.split(f)
+
+        index = 1 # used for the name pattern (name (nº).ext).
+        while True:
+            new = "%s/%s (%i)%s" % (fPath, newName, index, fExt)
+
+            # the order of the condicional statements influences in renamed files count
+            if new == f: break
+            elif not os.path.exists(new): break
+
+            index += 1
+
+        if new == f:
+            no_renamed += "\t%s\n" % (fName) # no need to rename the file
+            continue
+
+        os.rename(f, new)
+        f_renamed += 1
+        print "\t%s %s %s" % (addColor(fName,"GREEN"), msg_renamed, addColor(os.path.basename(new), "GREEN"))
+
+    if no_renamed:
+        print addColor(msg_noneed, "BLUE")
+        print no_renamed
+
+    print "\n%s(%i) %s%s.\n" % (tcolors.GREEN, f_renamed, msg_succes, " in %s folder" % (tcolors.TURQUEZE +  dName + tcolors.GREEN) if fInDir else "")
+    print addColor(msg_finished, "VIOLET")
+    raw_input()
+    selected, dFiles = None, None
+    exit()
