@@ -1,9 +1,9 @@
 ## Rename
 
-![](http://goo.gl/yaGlOJ?gdriveurl)
-
 Is a simple script for Nautilus that renames files and folders following a pattern: filename (nº).ext.
 For example: **Photo (23).jpg**
+
+![](http://goo.gl/yaGlOJ?gdriveurl)
 
 #### Requeriments:	
 	Python 2.x
@@ -27,9 +27,10 @@ Right click on a folder, go to **Scripts->Renamer**. All files in the selected f
 
 ## RenameUI
 
+Is a simple Gtk interface for Rename script.
+
 ![](http://goo.gl/rWOjiA?gdriveurl)
 
-Is a simple Gtk interface for Rename script.
 
 #### Requeriments:	
 	Python 2.x
