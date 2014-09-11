@@ -78,7 +78,9 @@ class Renamer:
 		if ev.keyval == 65307:
 			# Esc pressed
 			gtk.mainquit()
+			return
 		if ev.keyval == 65293 or ev.keyval == 65421:
+			# ENTER or INTRO pressed
 			self.win.hide()
 			self.rename(self.entry.get_text())
 
@@ -122,5 +124,4 @@ class Renamer:
 		gtk.main()
 
 if __name__ == "__main__":
-	ui = Renamer()
-	ui.main()
+	ui = Renamer().main()
