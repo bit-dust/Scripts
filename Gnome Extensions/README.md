@@ -1,0 +1,18 @@
+## Simple Gnome Shell extensions
+
+## Simple Overview
+Is a simple Gnome Shell extensions that convines [Hide Dash](https://github.com/xenatt/Minimalism-Gnome-Shell/tree/master/hide-dash%40xenatt.github.com) and [Hide Workspace Thumbnails](https://github.com/xenatt/Minimalism-Gnome-Shell/tree/master/hide-workspace%40xenatt.github.com) in one extension. 
+
+#### Requeriments:
+	Gnome Shell 3.12
+
+#### Installation
+Copy the folder **simple-overview@bit-dust.org** folder in `~/.local/gnome-shell/extensions`.
+Restar Gnome Shell using *Alt + F2* write "r" and press ENTER
+
+> To tets in Gnome Shell 3.10 change *shell-version* in *metadata.json* file to 
+``
+"shell-version": [
+  	  	"3.12"
+  	],
+``
