@@ -3,7 +3,7 @@
 Is a simple script for Nautilus that renames files and folders following a pattern: filename (nº).ext.
 For example: **Photo (23).jpg**
 
-![](https://raw.githubusercontent.com/bit-dust/Scripts/master/Python/Images/Image%20(1).png)
+![](https://raw.githubusercontent.com/bit-dust/Scripts/master/Python/Screenshots/Rename.png)
 
 #### Requeriments:	
 	Python 2.x
@@ -30,7 +30,7 @@ Right click on a folder, go to **Scripts->Renamer**. All files in the selected f
 
 Is a simple Gtk interface for Rename script.
 
-![](https://raw.githubusercontent.com/bit-dust/Scripts/master/Python/Images/Image%20(2).png)
+![](https://raw.githubusercontent.com/bit-dust/Scripts/master/Python/Screenshots/RenameUI.png)
 
 
 #### Requeriments:	
