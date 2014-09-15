@@ -10,4 +10,4 @@ Is a simple Gnome Shell extensions that convines [Hide Dash](https://github.com/
 Copy the folder `simple-overview@bit-dust.org` folder in `~/.local/gnome-shell/extensions`.
 Restart Gnome Shell using *Alt + F2* write "r" and press ENTER.
 
-> To tets in Gnome Shell 3.10 change *shell-version* in *metadata.json* file to **"shell-version": ["3.12"]**
+> To test in Gnome Shell 3.10 change *shell-version* in *metadata.json* file to **"shell-version": ["3.12"]**
