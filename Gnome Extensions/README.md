@@ -7,7 +7,7 @@ Is a simple Gnome Shell extensions that combines [Hide Dash](https://github.com/
 	Gnome Shell 3.12
 
 #### Installation
-Copy the folder `simple-overview@bit-dust.org` folder in `~/.local/share/gnome-shell/extensions`.
+Copy the folder `simple-overview@bit-dust.org` in `~/.local/share/gnome-shell/extensions`.
 Restart Gnome Shell using *Alt + F2* write "r" and press ENTER.
 
 > To test in Gnome Shell 3.10 change **shell-version** in *metadata.json* file to **"shell-version": ["3.10"]**
