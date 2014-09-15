@@ -1,0 +1,11 @@
+{
+	"uuid": "simple-overview@bit-dust.org",
+  	"description": "Hide Workspace Thumbnails and Dash on overiew to make it simple.", 
+  	"extension-id": "simple-overview",  
+  	"name": "Simple Overiew", 
+  	"shell-version": [
+  	  	"3.12"
+  	], 
+  	"url": "https://github.com/xenatt/Minimalism-Gnome-Shell/blob/master/hide-workspace@xenatt.github.com/",  
+  	"version": 1
+}
