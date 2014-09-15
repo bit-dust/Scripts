@@ -1,4 +1,4 @@
-// This simple extension convines hide dash and hide workspace extension. 
+// This simple extension combines hide dash and hide workspace extension. 
 // Please visit https://github.com/xenatt/Minimalism-Gnome-Shell
 
 const GLib = imports.gi.GLib;
