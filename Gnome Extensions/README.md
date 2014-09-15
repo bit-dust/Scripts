@@ -8,11 +8,6 @@ Is a simple Gnome Shell extensions that convines [Hide Dash](https://github.com/
 
 #### Installation
 Copy the folder **simple-overview@bit-dust.org** folder in `~/.local/gnome-shell/extensions`.
-Restar Gnome Shell using *Alt + F2* write "r" and press ENTER
+Restart Gnome Shell using *Alt + F2* write "r" and press ENTER.
 
-> To tets in Gnome Shell 3.10 change *shell-version* in *metadata.json* file to 
-``
-"shell-version": [
-  	  	"3.12"
-  	],
-``
+> To tets in Gnome Shell 3.10 change *shell-version* in *metadata.json* file to **"shell-version": ["3.12"]**
