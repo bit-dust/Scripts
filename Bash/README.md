@@ -40,3 +40,6 @@ nw-run will exclude *file.txt*, *folder* and *folder2/image.jpg* from your nw pa
 
 > The nw-run script creates a folder inside node-webkit folder called **apps**. In this folder will be stored all your nw apps executed with this script. To clean the nw apps folder execute `nw-run -c`.
 
+## Renamer
+
+Is teh Bash version of [Rename](https://github.com/bit-dust/Scripts/blob/master/Python/Rename)
