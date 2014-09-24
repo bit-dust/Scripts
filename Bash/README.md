@@ -1,25 +1,9 @@
 ## Please read the instructions inside on each script.
 
 
-## winmove
+## Renamer
 
-
-Is a simple script to manage window positions using keyboard shortcuts.
-You can set the keyboard shortcuts like:
-
-| Move action | Shortcut  |
-| ----------- | --------  |
-| left        | Super + 4 |
-| top-left    | Super + 7 |
-| bottom-left | Super + 1 |
-| right       | Super + 6 |
-| top-right   | Super + 9 |
-| bottom-right| Super + 3 |
-| center      | Super + 5 |
-    
-## winmove-installer
-
-Simple installer for **winmove.sh**. Execute with execution permissions.
+Is the Bash version of [Rename](https://github.com/bit-dust/Scripts/blob/master/Python/Rename)
 
 ## nw-run
 
@@ -40,6 +24,23 @@ nw-run will exclude *file.txt*, *folder* and *folder2/image.jpg* from your nw pa
 
 > The nw-run script creates a folder inside node-webkit folder called **apps**. In this folder will be stored all your nw apps executed with this script. To clean the nw apps folder execute `nw-run -c`.
 
-## Renamer
 
-Is teh Bash version of [Rename](https://github.com/bit-dust/Scripts/blob/master/Python/Rename)
+## winmove
+
+
+Is a simple script to manage window positions using keyboard shortcuts.
+You can set the keyboard shortcuts like:
+
+| Move action | Shortcut  |
+| ----------- | --------  |
+| left        | Super + 4 |
+| top-left    | Super + 7 |
+| bottom-left | Super + 1 |
+| right       | Super + 6 |
+| top-right   | Super + 9 |
+| bottom-right| Super + 3 |
+| center      | Super + 5 |
+    
+## winmove-installer
+
+Simple installer for **winmove.sh**. Execute with execution permissions.
