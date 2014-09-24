@@ -1,0 +1,138 @@
+#! /bin/bash
+# -*- coding: utf-8 -*-
+
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# Name:        Renamer
+# Description:     Rename all selected files following a pattern: filename (nº).ext.
+#              	   For example: Photo (23).jpg
+#
+# Author:      Brian Mayo
+# Contact:     brianmay.dev@gmail.com
+# Created:     9/9/2014
+# Licence:     GNU GPL v3
+#
+# Requeriments:	Gnome Terminal (or Konsole or XTerm)
+#				Nautilus or a derivated file manager (Caja, Nemo)
+# Installation: 
+#       Copy this file in /home/<user>/.local/share/nautilus/scripts and give it execution permissions.
+#		For Caja or Nemo modify line 38: "NAUTILUS_SCRIPT_SELECTED_FILE_PATHS" to "CAJA_SCRIPT_SELECTED_FILE_PATHS" or 
+#		"NEMO_SCRIPT_SELECTED_FILE_PATHS"
+#
+# Usage:    
+#		* Renaming Files: Right click on the selected files that you want rename (you can include folders). Open the context menu
+#                   	  and click in Scripts->Renamer. Simple window will be opened and write in it the new name for the files.
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+renamer() {	
+	msg_newname="Enter new name for the selected files: "
+	msg_error="New name can't be empty! Press ENTER to continue."
+	msg_renamed="renamed to"
+	msg_succes="Files renamed."
+	msg_noneed="\nNo need to rename the following files:\n\n"
+	msg_finished="\nFinished.\n"
+
+	case $LANG in
+		es* )
+			msg_newname="Escribe el nuevo nombre para los archivos seleccionados: "
+			msg_renamed="renombrado a"
+			msg_succes="Archivos renombrados con éxito."
+			msg_error="El nuevo nombre no puede ser nulo! Presiona ENTER para continuar."
+			msg_noneed="\nNo hace falta renombrar los siguientes archivos:\n\n"
+			msg_finished="\nListo.\n"
+	esac
+
+	new_name=""
+	while [ -z $new_name ]
+	do
+		read -p "$msg_newname" new_name
+		if [ -z $new_name ]; then
+			echo $msg_error
+			read enter
+			clear
+		fi
+	done
+	no_renamed=""
+	old=$IFS
+	IFS=$'\n'
+	echo
+	for item in $FILES
+	do
+		if [ -d "$item" ]; then # Continue if $item is a directory
+			continue
+		fi
+
+		# Files without extension                    
+	    base="${filename%.[^.]*}"                       
+	    ext="${filename##*.}"      
+
+		cnt=1 # Different extension and same number
+		while :
+		do
+			if [[ -z "$base" && -n "$ext" ]]; then          
+		        new="${item%/*}/$new_name ($cnt)" # File has no extension
+		    else
+				new="${item%/*}/$new_name ($cnt).${item##*.}" # Is a file
+			fi
+
+			if [ "$item" = "$new" ]; then # If are the same no need to rename. Avoid overriding differents files
+				break
+			fi
+
+			if [[ ! -f "$new" ]]; then
+				break
+			fi
+
+			(( cnt++ ))  # If file exists in selected files increment $cnt
+		done
+
+		if [ "$item" = "$new" ]; then # If are the same no need to rename. Avoid overriding differents files
+			no_renamed+="\t${item##*/}\n"
+			continue
+		fi
+
+		mv -i "$item" "$new" # Avoid overriding
+		(( fcnt++  ))
+		printf "\e[32m \t${item##*/} \033[0m$msg_renamed \e[32m${new##*/}\n"
+	done
+	if [ -n "$no_renamed" ]; then
+		printf "\e[34m $msg_noneed"
+		echo -e "\033[0m $no_renamed"
+	fi
+	if [[ ! $fcnt -eq 0 ]]; then
+		printf "\e[32m \n($fcnt) $msg_succes\n"
+	fi
+
+	echo -e "\033[1;37m $msg_finished"
+	read enter
+	IFS=$old
+
+	exit
+}
+
+# Call console for execute renamer function.
+call_console() {
+	export -f renamer # Export for use in a new terminal
+	FILES=$NAUTILUS_SCRIPT_SELECTED_FILE_PATHS # It will used outside
+	export FILES
+
+	sc_resolution="$( xrandr | grep '*' | grep -Eo '[0-9]{1,4}' )"
+	sc=(`echo ${sc_resolution[@]}`)
+	
+	X=$((( sc[0] / 2 ) - 366 )) # 90 - 400
+	Y=$((( sc[1] / 2 ) - 180)) # 20- 180
+
+	gnome-terminal --working-directory=/ --title="Renamer" --hide-menubar --geometry=80x20+$X+$Y -x bash -c "renamer; bash" # Uncomment for use gnome-terminal
+
+	#xterm -T "$console_title" -geometry 120x28+$X+$Y -e "renamer; bash" # Uncomment for use XTerm
+
+	#konsole -e ".$scptpath" # Uncoment for use konsole
+
+	exit
+}
+if [ ${#NAUTILUS_SCRIPT_SELECTED_FILE_PATHS[@]} -eq 0 ]; then
+	exit
+fi
+
+call_console
+
+exit
