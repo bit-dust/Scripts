@@ -12,6 +12,7 @@
 # Licence:     GNU GPL v3
 # 
 # Requeriments:	Python 2.x
+#				Gnome Terminal (or Konsole or XTerm)
 #				Nautilus or a derivated file manager (Caja, Nemo)
 # Installation: 
 #       Copy this file in /home/<user>/.local/share/nautilus/scripts and give it execution permissions.
@@ -39,6 +40,8 @@ colors = { 'DEFAULT': '\033[0m',
 'WHITE': '\033[97m'
 }
 
+global terms 
+terms = [ "gnome-terminal", "konsole", "mate-terminal", "xterm"]
 def addColor(s, color):
 	return colors[color] + s + colors['DEFAULT']
 
@@ -52,6 +55,19 @@ def callTerminal():
 	You can change the terminal as you want, check out the manual of your terminal to find the correlative arguments for:
 		gt_options, command.
 	"""
+	term = ""
+	if not os.path.isfile("/bin/" + terms[0]):
+		term = terms[0]
+	elif os.path.isfile("/bin/" + terms[1]):
+		term = terms[1]
+	elif os.path.isfile("/bin/" + terms[2]):
+		term = terms[2]
+	elif os.path.isfile("/bin/" + terms[3]):
+		term = terms[3]
+	else:
+		# there is not a terminal
+		exit()
+
 	# execute bash command to get screen resolution
 	sc_resolution = os.popen("xrandr | grep '*' | grep -Eo '[0-9]{1,4}'").read().splitlines()
 
@@ -60,9 +76,20 @@ def callTerminal():
 	t_y = int(sc_resolution[1]) / 2 - 234 # 20 rows =~ 180 px
 
 	script_path = os.path.abspath(__file__) # must be inside of nautilus/scripts folder
-	gt_options = "--working-directory=/ --title=Renamer --hide-menubar --geometry=90x26+{}+{}".format(t_x, t_y) 
-	# gnome terminal command with options and parameters
-	os.system("gnome-terminal %s -x bash -c \".%s && exit; bash\"" % (gt_options, script_path))
+
+	if term == terms[0] or term == term[2]:
+		term_options = "--working-directory=/ --title=Renamer --hide-menubar --geometry=90x26+{}+{}".format(t_x, t_y) 
+		# gnome and mate terminal command with options and parameters
+		os.system("%s %s -x bash -c \".%s && exit; bash\"" % (term, term_options, script_path))
+	if term == terms[1]:
+		term_options = "--workdir=/"
+		# gnome terminal command with options and parameters
+		os.system("%s %s -e bash -c \".%s && exit; bash\"" % (term, term_options, script_path))
+	if term == terms[3]:
+		term_options = "-T Renamer -geometry 120x28+%s+%s".format(t_x, t_y) 
+		# gnome terminal command with options and parameters
+		os.system("%s %s -e bash -c \".%s && exit; bash\"" % (term, term_options, script_path))
+	
 
 def main():
 	# load strings
