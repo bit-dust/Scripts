@@ -6,9 +6,11 @@ For example: **Photo (23).jpg**
 ![](https://raw.githubusercontent.com/bit-dust/Scripts/master/Python/Screenshots/Rename.png)
 
 #### Requeriments:	
+	xdotool
+	xrandr
 	Python 2.x
 	Nautilus or a derivated file manager (Caja, Nemo)
-	Gnome Terminal (for other terminal emulator you must modify in the script the callTerminal method)
+	Gnome Terminal (or Konsole or Mate Terminal or XTerm)
 
 #### Installation: 
 Copy the scrip in **/home/user/.local/share/nautilus/scripts** and give it execution permissions.

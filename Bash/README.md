@@ -5,6 +5,10 @@
 
 Is the Bash version of [Rename](https://github.com/bit-dust/Scripts/blob/master/Python/Rename)
 
+#### Requeriments
+	xdotool
+	xrandr
+
 ## nw-run
 
 Simple script to execute [Node Webkit](https://github.com/rogerwang/node-webkit) based apps.
@@ -27,7 +31,6 @@ nw-run will exclude *file.txt*, *folder* and *folder2/image.jpg* from your nw pa
 
 ## winmove
 
-
 Is a simple script to manage window positions using keyboard shortcuts.
 You can set the keyboard shortcuts like:
 
@@ -41,6 +44,10 @@ You can set the keyboard shortcuts like:
 | bottom-right| Super + 3 |
 | center      | Super + 5 |
     
+#### Requeriments
+	xdotool
+	xrandr
+
 ## winmove-installer
 
 Simple installer for **winmove.sh**. Execute with execution permissions.
