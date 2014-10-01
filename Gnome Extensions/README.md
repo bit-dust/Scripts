@@ -3,7 +3,7 @@
 ## Simple Overview
 Is a simple Gnome Shell extensions that combines [Hide Dash](https://github.com/xenatt/Minimalism-Gnome-Shell/tree/master/hide-dash%40xenatt.github.com) and [Hide Workspace Thumbnails](https://github.com/xenatt/Minimalism-Gnome-Shell/tree/master/hide-workspace%40xenatt.github.com) in one extension. 
 
-[!](https://raw.githubusercontent.com/bit-dust/Scripts/master/Gnome%20Extensions/Screenshot.png)
+![](https://raw.githubusercontent.com/bit-dust/Scripts/master/Gnome%20Extensions/Screenshot.png)
 
 #### Requeriments:
 	Gnome Shell 3.12
