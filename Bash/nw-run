@@ -12,6 +12,12 @@
 # Usage: For using this script you must set up the variable "nw_path" with the full path to node webkit folder.
 #		 The node webkit folder must not contains white spaces.
 #		 Put this script in the root folder of the app and execute it (same folder as package.json) or make a link in /bin folder.
+#		 Copy the script to your app folder and execute inside a terminal using ./nw-run. 
+#		 You can make a link in /bin to execute anywhere, open in a terminal your app folder - where is the package.json file - 
+#		 (example: cd /node-webkit/app-folder) and run "nw-run". You can exclude folders and files from your nw package 
+#	 	 using the -x parameter, use \file.ext to exclude files and/or \folder/* to exclude folders. Separe the folders and 
+#		 files with a comma, for example:
+#			nw-run -x "\file.txt, \folder/*, \folder2/image.jpg"
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 nw_path="/path/to/node-webkit" # set up this. Ex /home/node-webkit
