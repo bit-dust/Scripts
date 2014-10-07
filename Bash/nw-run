@@ -19,6 +19,7 @@ nw_apps_path="$nw_path/apps"
 
 if [[ ! -f "$PWD/package.json" ]]; then
 	echo "No package.json file founded. Execution failed."
+	exit 1
 fi
 
 old=$IFS
