@@ -4,6 +4,7 @@
   	"extension-id": "simple-overview",  
   	"name": "Simple Overiew", 
   	"shell-version": [
+  		"3.14",
   	  	"3.12"
   	], 
   	"url": "https://github.com/bit-dust/Scripts/tree/master/Gnome%20Extensions/simple-overview%40bit-dust.org",  
